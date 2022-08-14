@@ -20,7 +20,6 @@ const defaultFormFields = {
 
 function SignUpForm() { 
   const [formFields, setFormFields] = useState(defaultFormFields)
-  console.log(formFields)
   
   const resetFormFields = () => {
     setFormFields(defaultFormFields)
@@ -101,7 +100,13 @@ function SignUpForm() {
           }}
           />
       
-        <Button type='submit'>Sign Up</Button>
+        <Button 
+          buttonOptions={{
+            type: 'submit'
+          }}
+        >
+          Sign Up
+        </Button>
       </form>
     </div>
   )
