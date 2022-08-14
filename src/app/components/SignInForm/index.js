@@ -5,7 +5,6 @@ import Button from '../Button'
 
 import {
   signInWithGooglePopup, 
-  createUserDocumentFromAuth, 
   signInAuthUserWithEmailAndPassword
 } from '../../utils/firebase'
 
@@ -29,9 +28,7 @@ function SignInForm() {
 
   const SignInWithGoogle = async () => {
     try {
-      const { user } = await signInWithGooglePopup()      
-      await createUserDocumentFromAuth(user)
-      
+      await signInWithGooglePopup() 
     } catch(err) {
       console.log(err)
     }
@@ -41,7 +38,7 @@ function SignInForm() {
     e.preventDefault()
 
     try {
-      await signInAuthUserWithEmailAndPassword(formFields.email, formFields.password)
+       await signInAuthUserWithEmailAndPassword(formFields.email, formFields.password)
 
       resetFormFields()
     } catch(err) {
