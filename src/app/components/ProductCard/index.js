@@ -16,7 +16,7 @@ function ProductCard({ product }) {
       <img src={product.imageUrl} alt='product' />
       <div className='footer'>
         <span className='name'>{product.name}</span>
-        <span className='price'>{product.price}</span>
+        <span className='price'>${product.price}</span>
       </div>
       <Button buttonType='inverted' buttonOptions={{ onClick: addProductHandler }}>Add to Cart</Button>
     </div>
