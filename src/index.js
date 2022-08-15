@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 
 import { UserProvider } from './app/contexts/user';
-import { ProductsProvider } from './app/contexts/products';
+import { CategoriesProvider } from './app/contexts/categories';
 import { CartProvider } from './app/contexts/cart';
 
 import './index.scss';
@@ -16,11 +16,11 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <UserProvider>
-        <ProductsProvider>
+        <CategoriesProvider>
           <CartProvider>
             <App />
           </CartProvider>
-        </ProductsProvider>
+        </CategoriesProvider>
       </UserProvider>
     </BrowserRouter>
   </React.StrictMode>
