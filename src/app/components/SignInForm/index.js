@@ -12,7 +12,7 @@ import {
   SignUpContainer,
   Title,
   ButtonsContainer
-} from './styledComponents'
+} from './styledComponents.js'
 
 const defaultFormFields = {
   email: '',

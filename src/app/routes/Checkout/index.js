@@ -9,7 +9,7 @@ import {
   CheckoutHeader,
   HeaderBlock,
   Total
-} from './styledComponents'
+} from './styledComponents.js'
 
 function Checkout() {
   const { cartItems, cartTotal } = useContext(CartContext)

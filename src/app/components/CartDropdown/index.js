@@ -10,7 +10,7 @@ import {
   CartDropdownContainer, 
   EmptyMessage, 
   CartItems 
-} from './styledComponents'
+} from './styledComponents.js'
 
 function CartDropdown() {
   const { cartItems } = useContext(CartContext)

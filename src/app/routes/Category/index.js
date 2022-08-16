@@ -8,7 +8,7 @@ import { CategoriesContext } from '../../contexts/categories'
 import {
   CategoryContainer,
   CategoryTitle
-} from './styledComponents'
+} from './styledComponents.js'
 
 function Category() {
   const { category } = useParams()

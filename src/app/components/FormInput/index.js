@@ -2,7 +2,7 @@ import {
   FormInputLabel,
   Input,
   Group
-} from "./styledComponents"
+} from "./styledComponents.js"
 
 function FormInput({ label, inputOptions }) {
   return (
