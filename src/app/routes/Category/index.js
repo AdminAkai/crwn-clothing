@@ -5,7 +5,10 @@ import ProductCard from '../../components/ProductCard'
 
 import { CategoriesContext } from '../../contexts/categories'
 
-import './styles.scss'
+import {
+  CategoryContainer,
+  CategoryTitle
+} from './styledComponents'
 
 function Category() {
   const { category } = useParams()
@@ -19,12 +22,12 @@ function Category() {
 
   return (
     <>
-      <h2 className='category-title'>{category.toUpperCase()}</h2>
-      <div className='category-container'>
+      <CategoryTitle>{category.toUpperCase()}</CategoryTitle>
+      <CategoryContainer>
         {
           products && products.map(product => <ProductCard key={product.id} product={product} />)
         }
-      </div>
+      </CategoryContainer>
     </>
   )
 }

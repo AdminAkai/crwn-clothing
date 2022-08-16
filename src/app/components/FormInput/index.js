@@ -1,19 +1,23 @@
-import "./styles.scss"
+import {
+  FormInputLabel,
+  Input,
+  Group
+} from "./styledComponents"
 
 function FormInput({ label, inputOptions }) {
   return (
-    <div className="group">
+    <Group>
       {
         label && (
-          <label 
-          className={`${inputOptions.value.length ? 'shrink' : null} form-input-label`}
+          <FormInputLabel 
+            shrink={inputOptions.value.length}
           >
             {label}
-          </label> 
+          </FormInputLabel> 
         )
       }
-      <input className="form-input" {...inputOptions} />
-    </div>
+      <Input {...inputOptions} />
+    </Group>
   )
 }
 
