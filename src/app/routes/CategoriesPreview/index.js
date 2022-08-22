@@ -1,11 +1,11 @@
-import { useContext } from 'react'
+import { useSelector } from 'react-redux'
 
 import CategoryPreview from '../../components/CategoryPreview'
 
-import { CategoriesContext } from '../../contexts/categories'
+import { selectCategoriesMap } from '../../redux/features/categoriesSlice/selectors'
 
 function CategoriesPreview() {
-  const { categoriesMap } = useContext(CategoriesContext)
+  const categoriesMap = useSelector(selectCategoriesMap)
 
   return (
     <>
