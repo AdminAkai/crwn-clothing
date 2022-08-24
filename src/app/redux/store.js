@@ -1,17 +1,32 @@
 import { configureStore,  } from '@reduxjs/toolkit'
+import { persistStore, persistReducer } from 'redux-persist'
+import  { combineReducers } from 'redux'
+import storage from 'redux-persist/lib/storage'
 import logger from 'redux-logger'
 
 import { userSlice, categoriesSlice, cartSlice } from './features'
 
-const middleWares = [logger]
+const persistConfig = {
+  key: 'root',
+  storage,
+  blacklist: ['user']
+}
+
+const reducers = combineReducers({
+  user: userSlice,
+  categories: categoriesSlice,
+  cart: cartSlice
+})
+
+const persistedReducer = persistReducer(persistConfig, reducers)
+
+const middleWares = [process.env.NODE_ENV !== 'development' && logger].filter(Boolean)
 
 const store = configureStore({
-  reducer: {
-    user: userSlice,
-    categories: categoriesSlice,
-    cart: cartSlice
-  },
+  reducer: persistedReducer,
   middleware: middleWares
 })
+
+export const persistor = persistStore(store)
 
 export default store
