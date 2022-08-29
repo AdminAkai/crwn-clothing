@@ -27,7 +27,7 @@ function Category() {
     <>
       <CategoryTitle>{category.toUpperCase()}</CategoryTitle>
       {
-        loading && ( <Spinner /> )
+        (loading && <Spinner />)
         ||
         ( <CategoryContainer>
           {

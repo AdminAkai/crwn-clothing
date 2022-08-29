@@ -12,7 +12,7 @@ function CategoriesPreview() {
   return (
     <>
       {
-        loading && ( <Spinner /> )
+        (loading && <Spinner />)
         ||
         Object.keys(categoriesMap).map(title => {
           const products = categoriesMap[title]

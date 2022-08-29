@@ -1,17 +1,4 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { getCategoriesAndDocuments } from '../../../utils/firebase'
-
-export const fetchAllCategories = createAsyncThunk(
-  'categories/fetchAllCategories',
-  async (thunkAPI) => {
-    try {
-      const response = await getCategoriesAndDocuments()
-      return response
-    } catch(err) {
-      return err
-    }
-  }
-)
+import { createSlice } from '@reduxjs/toolkit'
 
 // Initial State
 const initialState = {
@@ -25,27 +12,20 @@ const categoriesSlice = createSlice({
   name: 'categories',
   initialState,
   reducers: {
-    setCategories: (state, { payload }) => {
-      state.categories = payload
-    }
-  },
-  extraReducers: (builder) => {
-    builder.addCase(fetchAllCategories.pending, (state) => {
+    fetchCategoriesStart: state => {
       state.loading = true
-    })
-    builder.addCase(fetchAllCategories.fulfilled, (state, { payload }) => {
+    },
+    fetchCategoriesSuccess: (state, { payload }) => {
       state.categories = payload
-      state.error = ''
       state.loading = false
-    })
-    builder.addCase(fetchAllCategories.rejected, (state, { payload }) => {
-      state.error = payload.message
-      state.categories = []
+    },
+    fetchCategoriesFailed: (state, { payload }) => {
+      state.error = payload
       state.loading = false
-    })
+    },
   }
 })
 
 // Actions - Reducer
-export const { setCategories } = categoriesSlice.actions
+export const { fetchCategoriesStart } = categoriesSlice.actions
 export default categoriesSlice.reducer
