@@ -18,7 +18,7 @@ import { userSlice, categoriesSlice, cartSlice } from './features'
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: ['user']
+  whitelist: ['cart']
 }
 
 const reducers = combineReducers({
