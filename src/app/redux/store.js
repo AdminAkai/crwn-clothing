@@ -16,6 +16,7 @@ import storage from 'redux-persist/lib/storage'
 import logger from 'redux-logger'
 
 import categoriesSaga from '../redux/features/categoriesSlice/saga'
+import userSagas from './features/userSlice/saga'
 import { userSlice, categoriesSlice, cartSlice } from './features'
 
 const sagas = createSagaMiddleware()
@@ -51,7 +52,7 @@ const store = configureStore({
 export const persistor = persistStore(store)
 
 function* rootSaga() {
-  yield all([call(categoriesSaga)])
+  yield all([call(categoriesSaga), call(userSagas)])
 }
 
 sagas.run(rootSaga)

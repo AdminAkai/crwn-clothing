@@ -27,5 +27,5 @@ const categoriesSlice = createSlice({
 })
 
 // Actions - Reducer
-export const { fetchCategoriesStart } = categoriesSlice.actions
+export const { fetchCategoriesStart, fetchCategoriesSuccess, fetchCategoriesFailed } = categoriesSlice.actions
 export default categoriesSlice.reducer
