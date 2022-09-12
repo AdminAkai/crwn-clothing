@@ -26,13 +26,21 @@ const userSlice = createSlice({
     signinFailure: (state, { payload }) => {
       state.error = payload
       state.loading = false
-    }
+    },
+    signupStart: (state) => {
+      state.loading = true
+    },
+    signupSuccess: () => {},
+    signupFailure: (state, { payload }) => {
+      state.error = payload
+    },
   }
 })
 
 // Actions - Reducer
 export const { 
   setCurrentUser, signinSuccess, signinFailure, 
-  checkUserSession, googleSigninStart, emailSigninStart
+  checkUserSession, googleSigninStart, emailSigninStart,
+  signupStart, signupSuccess, signupFailure
 } = userSlice.actions
 export default userSlice.reducer

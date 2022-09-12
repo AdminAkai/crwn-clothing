@@ -71,6 +71,8 @@ export const getCategoriesAndDocuments = async () => {
 
 // Check if user exists, if not create new user in db
 export const createUserDocumentFromAuth = async (userAuth) => {
+  console.log("---- userAuth ----")
+  console.log(userAuth)
   if (!userAuth) return
 
   const userDocRef = doc(db, 'users', userAuth.uid)
